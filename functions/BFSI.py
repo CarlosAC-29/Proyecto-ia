@@ -102,7 +102,7 @@ def solve_game_BFSI(map, startingState):
     Solution = []
 
     #Inicializar la profundidad maxima
-    depthL = 0
+    depthL = 10
     #Este es el while que va recorriendo el arbol
     while True:
         if len(pile) == 0:
