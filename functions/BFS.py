@@ -103,7 +103,7 @@ def solve_game_BFS(startingState, map):
 #Este es el while que va recorriendo el arbol
     while True:
         if len(pile) == 0:
-            print("Fallo todo lo que hicimos no sirve para nada")
+            print("Fallo no se halló solucion")
             break
         else:
             theNode=pile.pop((len(pile)-1))

@@ -105,7 +105,7 @@ def solve_game_DFS(startingState, map):
     #Este es el while que va recorriendo el arbol
     while True:
         if len(queue) == 0:
-            print("Fallo todo lo que hicimos no sirve para nada")
+            print("Fallo no se halló solucion")
             break
         else:
             theNode=queue.pop(0)
