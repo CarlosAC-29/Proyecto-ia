@@ -7,8 +7,8 @@ def solve_game_BFS(startingState, map):
     
     operations = [[-1,0],[1,0],[0,-1],[0,1]]
     hash_table = HashTable(50)
-
     #Función que determina si una operación es válida si el jugador no chocaría con una pared
+    #Le entra un Estado que es una matriz donde la primera posicion es el jugador [x,y] y el resto las posiciones de las cajas [x,y]
     def isValid(state):
         #print(state)
         if len(state) > 2:
@@ -27,7 +27,8 @@ def solve_game_BFS(startingState, map):
             if ((map[state[1][0]][state[1][1]])=='W'):
                 return False
             return True
-
+        
+    #Devuelve una cadena de caracteres de un estado dado
     def makeString (state):
         mystate=""
         for data in state:
@@ -36,18 +37,20 @@ def solve_game_BFS(startingState, map):
         return mystate
 
     #Retorna False si Un valor ya esta en la tabla hash y True si no esta
-    def noHash (state):
+    #Le entra un Estado que es una matriz donde la primera posicion es el jugador [x,y] y el resto las posiciones de las cajas [x,y]    def noHash (state):
+    def noHash (state):    
         stateStr= makeString(state)
         if hash_table.get_val(stateStr):
             return False
         else:
             return True
-
+    #Inserta un estado vuelto un string a la tabla hash
     def setHash (state):
         stateStr= makeString(state)
         hash_table.set_val(stateStr, 'A')
 
-    #Función que determina si un estado es meta, lo hace evaluando si quedan cajas en el estado
+    #Función que determina si un estado es meta, lo hace evaluando si la posicion de las cajas equivale a una X en el mapa
+    #Le entra un Estado que es una matriz donde la primera posicion es el jugador [x,y] y el resto las posiciones de las cajas [x,y]
     def isSolution(state):
         if len(state) > 2:
             if ((map[state[1][0]][state[1][1]] == "X") and (map[state[2][0]][state[2][1]] == "X")):
@@ -62,6 +65,8 @@ def solve_game_BFS(startingState, map):
 
 
     #A esta funcion le entra un estado y un movimiento a ejecutar y tiene que retornar el nuevo estado
+    #Le entra un Estado que es una matriz donde la primera posicion es el jugador [x,y] y el resto las posiciones de las cajas [x,y]
+    #Le entra un movimiento que es un array de posiciones que pueden ser [0,1],[1,0],[-1,0],[0,-1]
     def newState (state, movement):
         if len(state) > 2 : 
             newPositionP = [state[0][0]+movement[0], state[0][1]+movement[1]]
@@ -80,7 +85,8 @@ def solve_game_BFS(startingState, map):
                 newPositionB1 = [state[1][0]+movement[0], state[1][1]+movement[1]]
             finalState = [newPositionP, newPositionB1]
             return finalState
-
+        
+    #Hace un recorrido del nodo hoja hasta su padre para conocer el camino recorrido
     def path(world):
         if world.parent != None :
             if world.madeBy == operations[0] :
