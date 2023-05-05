@@ -7,9 +7,7 @@ def solve_game_BFS(startingState, map):
     operations = [[-1,0],[1,0],[0,-1],[0,1]]
     hash_table = HashTable(50)
 
-    # index = (len(pile)-1)
     def isValid(state):
-    #print(state)
         if len(state) > 2:
             if ((map[state[0][0]][state[0][1]])=='W'):
                 return False
@@ -116,8 +114,7 @@ def solve_game_BFS(startingState, map):
                 for i in Solution:        
                     palabra += i
                 return palabra
-                #Aqui va una funcion que nos permita imprimir los resultados o algo
-                break
+
             else:
                 firstOpe = newState(theNode.state, operations[3])
                 secondOpe = newState(theNode.state, operations[2])
@@ -147,21 +144,3 @@ def solve_game_BFS(startingState, map):
                     fourthNode = Node(oneDic)
                     if fourthNode.depth <= 64:        
                         pile.append(fourthNode)
-
-#startingState = [[1,1],[2,2],[2,3]]
-#startingState2 = [[1,1],[2,2],[3,2]]
-#startingStateOneBox = [[1,3],[1,2]]
-#startingStateTwoBox = [[1,3],[1,2],[1,4]]
-#este es el arreglo con todas las operaciones posibles
-#estos son los datos del mapa, 'w' representa las paredes, 'g' representa las metas, 'b' representa las cajas y 'p' representa al jugador
-#gameMap = [
-#     ['W','W','W','W','W','W'],
-#     ['W','O','O','O','W','W'],
-#     ['W','X','O','X','O','W'],
-#     ['W','O','O','W','O','W'],
-#     ['W','O','O','O','O','W'],
-#     ['W','W','W','W','W','W']
-#     ]
-
-#sol = solve_game_DFS(startingState, gameMap)
-#print(sol)

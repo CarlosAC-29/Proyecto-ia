@@ -1,50 +1,11 @@
 from classes.hash_table import HashTable
 from classes.node import Node
 
-
-# game_map = [
-#     ['W','W','W','W','W','W'],
-#     ['W','O','O','O','W','W'],
-#     ['W','X','O','X','O','W'],
-#     ['W','O','O','W','O','W'],
-#     ['W','O','O','O','O','W'],
-#     ['W','W','W','W','W','W']
-#     ]
-
-# startingStates = [[1,1],[2,2],[2,3]]
-# startingState2 = [[1,1],[2,2],[3,2]]
-# startingStateOneBox = [[1,3],[1,2]]
-# startingStateTwoBox = [[1,3],[1,2],[1,4]]
-
-
 def solve_game_BFSI(map, startingState):
 
     hash_table = HashTable(50)
 
     operations = [[-1,0],[1,0],[0,-1],[0,1]]
-    #estos son los datos del mapa, 'w' representa las paredes, 'g' representa las metas, 'b' representa las cajas y 'p' representa al jugador
-
-    #map = [
-    #    ['W','W','W','W','W','W'],
-    #    ['W','O','O','O','O','W'],
-    #    ['W','X','O','X','O','W'],
-    #    ['W','O','O','O','O','W'],
-    #    ['W','O','O','O','O','W'],
-    #    ['W','W','W','W','W','W']
-    #    ]
-
-    # map = [
-    #     ['W','W','W','W','W','W','W'],
-    #     ['W','X','O','O','O','X','W'],
-    #     ['W','W','W','W','W','W','W']
-    #     ]
-
-    #Clase nodo, esta clase se encarga de crear los nodos, 
-    #Recibe un estado del problema,
-    #Una referencia al nodo padre  
-    #La operacion con la que fue creado,
-    #Con la profundidad del nodo padre le sumo 1 a la profundidad del nodo actual
-
 
     #Función que determina si una operación es válida si el jugador no chocaría con una pared
     def isValid(state):
@@ -72,16 +33,6 @@ def solve_game_BFSI(map, startingState):
             for num in data:
                 mystate += str(num)
         return mystate
-
-    # def printHashTable(hash_table):
-    #     if all(not bucket for bucket in hash_table.hash_table):
-    #         print("La HashTable está vacía")
-    #     else:
-    #         for i, bucket in enumerate(hash_table.hash_table):
-    #             if bucket:
-    #                 print(f"Bucket {i}: {bucket}")
-    #             else:
-    #                 print(f"Bucket {i}: vacío")
 
     #Retorna False si Un valor ya esta en la tabla hash y True si no esta
     def noHash (state):
@@ -172,10 +123,7 @@ def solve_game_BFSI(map, startingState):
                 for i in Solution:        
                     palabra += i
                 return palabra
-                # print(palabra)
-                # print("lo logramos somos unas maquinas ", theNode.state," ", depthL)
-                #Aqui va una funcion que nos permita imprimir los resultados o algo
-                break
+
             else:
                 firstOpe = newState(theNode.state, operations[3])
                 secondOpe = newState(theNode.state, operations[2])

@@ -100,7 +100,6 @@ def solve_game_DFS(startingState, map):
     firstdic = {"state": startingState, "parent":None, "applied":None, "depth":0}
     firstNode = Node(firstdic)
     queue = [firstNode]
-    index = 0
     Solution = []
 
     #Este es el while que va recorriendo el arbol
@@ -117,9 +116,7 @@ def solve_game_DFS(startingState, map):
                 for i in Solution:        
                     palabra += i
                 return palabra
-                print("lo logramos somos unas maquinas ", theNode.state)
-                #Aqui va una funcion que nos permita imprimir los resultados o algo
-                break
+
             else:
                 firstOpe = newState(theNode.state, operations[0])
                 secondOpe = newState(theNode.state, operations[1])
