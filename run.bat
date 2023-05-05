@@ -1,8 +1,8 @@
 @echo off
 echo Verificando la existencia del ambiente virtual...
-if not exist mi_entorno (
+if not exist env (
   echo Creando el ambiente virtual...
-  python -m venv mi_entorno
+  python -m venv env
 )
 echo Activando el ambiente virtual...
 call mi_entorno\Scripts\activate

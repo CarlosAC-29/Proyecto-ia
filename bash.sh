@@ -1,6 +1,6 @@
 #!/bin/bash
 echo Verificando la existencia del ambiente virtual...
-if [ ! -d "mi_entorno" ]
+if [ ! -d "env" ]
 then
   echo Creando el ambiente virtual...
   python3 -m venv mi_entorno
