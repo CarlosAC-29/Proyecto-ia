@@ -1,6 +1,6 @@
 import streamlit as st
-from functions.DFS import solve_game_BFS
-from functions.BFS import solve_game_DFS
+from functions.DFS import solve_game_DFS
+from functions.BFS import solve_game_BFS
 from functions.BFSI import solve_game_BFSI
 
 def main():
