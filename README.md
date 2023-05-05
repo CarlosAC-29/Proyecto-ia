@@ -18,7 +18,7 @@ Integrantes :
 2 . Vaya la ruta donde ha clonado el proyecto en su maquina y en su terminal ejecute los siguientes comandos dependiendo el sistema operativo.
 
 
-#### Si esta en Mac o Linux, primero de los permisos para ejecutar el archivo .sh
+### Si esta en Mac o Linux, primero de los permisos para ejecutar el archivo .sh
 ```bash
   chmod +x bash.sh
 ```
@@ -32,4 +32,8 @@ Luego use el comando
 ```bash
   ./run.bat
 ```
+### o utilice el comando 
 
+```bash
+  run.bat
+```
